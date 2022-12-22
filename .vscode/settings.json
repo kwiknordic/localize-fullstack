@@ -1,0 +1,4 @@
+{
+  "typescript.validate.enable": true,
+  "prettier.bracketSameLine": true
+}
