@@ -1,0 +1,37 @@
+{
+  "links": [],
+  "meta": {
+      "nearbyInKm": 5,
+      "nearbyCount": 25,
+      "numTries": 1
+  },
+  "data": [
+      {
+          "id": 253442,
+          "pubdate_iso8601": "2022-12-22T08:06:45+0100",
+          "pubdate_unix": "1671692805",
+          "title_type": "Stöld/inbrott",
+          "title_location": "Stockholm",
+          "description": "Polis kallas till Ringvägen/Rosenlundsgatan på Södermalm då en inringare sett att två personer bryta sig in i",
+          "content": "<p>När polispatrullen kom till platsen påträffades de två personerna, en man och en kvinna, som greps och är misstänkta för brottet.</p>",
+          "locations": [
+              {
+                  "name": "ringvägen",
+                  "prio": 1
+              },
+              {
+                  "name": "rosenlundsgatan",
+                  "prio": 1
+              }
+          ],
+          "lat": 59.3106549,
+          "lng": 18.0583471,
+          "viewport_northeast_lat": "59.3120039",
+          "viewport_northeast_lng": "18.0596961",
+          "viewport_southwest_lat": "59.3093059",
+          "viewport_southwest_lng": "18.0569981",
+          "image": "https://kartbilder.brottsplatskartan.se/styles/basic-preview/static/auto/320x320.jpg?latlng=1&fill=rgba%28255%2C0%2C0%2C.2%29&width=2&stroke=rgba%28255%2C0%2C0%2C.2%29&path=59.3120039%2C18.0596961%7C59.3093059%2C18.0596961%7C59.3093059%2C18.0569981%7C59.3120039%2C18.0569981&padding=0.4",
+          "permalink": "https://brottsplatskartan.se/stockholms-lan/stold-inbrott-stockholm-ringvagen-rosenlundsgatan-sodermalm-polis-kallas-till-ringvagen-rosenlundsgatan-pa-sodermalm-da-en-inringare-sett-att-tva-personer-bryta-sig-in-i-en-butik-253442"
+      }
+  ]
+}
