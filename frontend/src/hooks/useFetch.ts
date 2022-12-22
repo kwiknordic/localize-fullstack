@@ -1,20 +1,15 @@
 import { useEffect, useState } from 'react'
 
-interface Params {
-  url: string
-  options: any
-}
-
-interface Response {
-  data: any
+interface FetchState<T> {
+  data: T | undefined
   loading: boolean
-  error: null | Error
+  error: Error | undefined
 }
 
-const useFetch = ({ url, options }: Params): Response => {
+const useFetch = <T>(url: string, options: {}): FetchState<T> => {
   const [data, setData] = useState()
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState()
 
   useEffect(() => {
     fetch(url, options)
@@ -26,7 +21,7 @@ const useFetch = ({ url, options }: Params): Response => {
       .catch((error) => {
         setError(error)
       })
-  }, [url, options])
+  }, [])
 
   return { data, loading, error }
 }
