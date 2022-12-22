@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { brottsplatskartanURL } from './api/brottskartan/brottsplatskartanURL.js'
+import { brottsplatskartanURL } from './api/brottsplatskartan/brottsplatskartanURL.js'
 import useFetch from './hooks/useFetch.js'
 
 interface Response {
