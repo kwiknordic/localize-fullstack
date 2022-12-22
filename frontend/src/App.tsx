@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { brottsplatskartanURL } from './api/brottsplatskartan/brottsplatskartanURL.js'
 import useFetch from './hooks/useFetch.js'
 
@@ -25,7 +24,6 @@ export interface Entries {
 }
 
 function App(): JSX.Element {
-  const [count, setCount] = useState(0)
   const { data, loading, error }: Response = useFetch(brottsplatskartanURL(undefined, 18.5))
 
   if (error) return <span>{error.name}: {error.message}</span>
