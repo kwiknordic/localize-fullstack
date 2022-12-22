@@ -26,7 +26,7 @@ const useFetch = ({ url, options }: Params): Response => {
       .catch((error) => {
         setError(error)
       })
-  }, [url])
+  }, [url, options])
 
   return { data, loading, error }
 }
