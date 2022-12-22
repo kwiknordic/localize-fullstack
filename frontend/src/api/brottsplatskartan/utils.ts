@@ -5,6 +5,7 @@ export function constructBrottsplatsData(unmappedData: Root | undefined) {
   if (!unmappedData) return undefined
 
   return unmappedData.data.map((obj) => {
+    
     const locations = obj.locations
       .map((location) => location.name)
       .filter((string) => string.length > 0)
