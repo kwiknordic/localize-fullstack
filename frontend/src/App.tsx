@@ -30,7 +30,7 @@ function App(): JSX.Element {
   if (loading) return <span>Loading...</span>
 
   // Should I have Interface for the original data.data properties too, to get intellisense?
-  // Should I have any, or string, nothing at all at location-param and obj-param above?
+  // Should I have any, or string, or nothing at all at location-param and obj-param on .map/.filter below?
 
   const entries: Entries[] = data.data.map((obj: any) => {
     const { id, title_type, title_location, description, image } = obj
