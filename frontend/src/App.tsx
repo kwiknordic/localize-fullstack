@@ -1,6 +1,6 @@
 import Posts from "./features/posts/Posts.js"
 
-function App(): JSX.Element {
+function App() {
   return (
     <>
       <h1>Welcome to my site!</h1>
