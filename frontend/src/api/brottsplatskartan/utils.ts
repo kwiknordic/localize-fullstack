@@ -1,4 +1,4 @@
-import { Root, Entry } from "./types.js"
+import { Root, BrottsplatsDataDTO } from "./types.js"
 
 export function constructBrottsplatsData(unmappedData: Root | undefined) {
   // do I need to safe-guard here?
@@ -15,6 +15,6 @@ export function constructBrottsplatsData(unmappedData: Root | undefined) {
       title: obj.title_type,
       description: obj.description,
       locations: [obj.title_location, ...locations],
-    } as Entry
+    } as BrottsplatsDataDTO
   }) 
 }

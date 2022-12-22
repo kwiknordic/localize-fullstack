@@ -1,7 +1,7 @@
-import { Entry as EntryType} from '../../api/brottsplatskartan/types.js'
+import { BrottsplatsDataDTO } from '../../api/brottsplatskartan/types.js'
 
 interface Props {
-  data: EntryType
+  data: BrottsplatsDataDTO
 }
 
 // props below cannot infer types?

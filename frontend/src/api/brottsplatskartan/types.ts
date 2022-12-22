@@ -1,4 +1,5 @@
-export interface Entry {
+// what name is optimal for the remapped return?
+export interface BrottsplatsDataDTO {
   id: number,
   title: string,
   description: string,
