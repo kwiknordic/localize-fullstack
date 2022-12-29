@@ -1,0 +1,9 @@
+@hostname = http://localhost
+@port = 5001
+@host = {{hostname}}:{{port}}
+
+GET {{host}}/brottsplatskartan?long=10.2
+
+###
+
+GET {{host}}/mitti?to:5

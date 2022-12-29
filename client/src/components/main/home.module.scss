@@ -1,0 +1,19 @@
+$shared: "../../shared.module.scss";
+
+.container {
+  background-color: var(--bg-color);
+/*   padding-bottom: 2rem; */
+  padding-inline: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  overflow-y: hidden;
+/*   justify-content: center; */
+}
+
+/* @media (min-width: 65rem) {
+  .container {
+    flex-wrap:
+  }
+} */

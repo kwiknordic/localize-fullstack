@@ -1,0 +1,31 @@
+import { Request, Response, NextFunction } from "express";
+import { notFoundError } from "./errors.js";
+import {
+	ReasonPhrases,
+	StatusCodes,
+} from 'http-status-codes';
+
+export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction): unknown => {
+  console.log("I am inside ErrorHandler")
+
+  if (err instanceof SyntaxError) {
+    return res
+      .status(StatusCodes.SERVICE_UNAVAILABLE)
+      .json(ReasonPhrases.SERVICE_UNAVAILABLE)
+  }
+
+  if (err instanceof TypeError) {
+    return res
+      .status(StatusCodes.SERVICE_UNAVAILABLE)
+      .json(ReasonPhrases.SERVICE_UNAVAILABLE)
+  }
+
+  if (err instanceof notFoundError) {
+    return res
+      .status(StatusCodes.NOT_FOUND)
+      .json(ReasonPhrases.NOT_FOUND);
+  }
+
+  next()
+  return
+}
