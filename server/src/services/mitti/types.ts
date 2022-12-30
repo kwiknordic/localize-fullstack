@@ -10,7 +10,7 @@ export interface Mitti {
 
 interface Item {
   title: string,
-  description: string,
+  content: string,
   category: string,
   link: string,
   pubDate: string,

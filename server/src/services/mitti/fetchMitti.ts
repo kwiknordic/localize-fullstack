@@ -10,11 +10,12 @@ const rssURL = "https://www.mitti.se/rss-6.8.0.0.e70d15cb3c"
 
 export const fetchMitti: Function = async({from, to}) => {
     const feed = await parser.parseURL(rssURL)
+    console.log(feed)
 
     return feed.items.map(obj => {
       return {
         title: obj.title,
-        description: obj.description,
+        description: obj.content,
         date: formatDates(obj.pubDate),
       }
     }).slice(from, to) as ResponseDTO[]
