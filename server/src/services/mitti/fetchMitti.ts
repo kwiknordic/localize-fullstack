@@ -8,9 +8,8 @@ const parser = new Parser()
 
 const rssURL = "https://www.mitti.se/rss-6.8.0.0.e70d15cb3c"
 
-export const fetchMitti: Function = async({from, to}) => {
+export const fetchMitti: Function = async({from = 0, to = 25}) => {
     const feed = await parser.parseURL(rssURL)
-    console.log(feed)
 
     return feed.items.map(obj => {
       return {

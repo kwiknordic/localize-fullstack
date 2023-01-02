@@ -6,14 +6,18 @@ function Search() {
   return (
     <>
       <form className={style.search}>
-        <FaSearch className={style.icon} />
+        <FaSearch style={iconStyle} />
         <input type="search" placeholder='Nearby events..' autoFocus/>
         <button type="submit" onSubmit={(e) => e.preventDefault}>
-          <FaArrowCircleRight className={style.icon} />
+          <FaArrowCircleRight style={iconStyle} />
         </button>
       </form>
     </>
   )
+}
+
+const iconStyle = {
+  fontSize: "1.6rem",
 }
 
 export default Search

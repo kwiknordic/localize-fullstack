@@ -9,7 +9,6 @@ import { FcGoogle } from "react-icons/fc";
 import { FaChevronLeft, FaChevronRight, FaMeetup } from "react-icons/fa";
 
 // Styling
-import { cls } from "../../utils/classNames.js";
 import style from "./header.module.scss"
 
 export default function Header() {

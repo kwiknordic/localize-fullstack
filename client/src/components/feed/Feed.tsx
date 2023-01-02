@@ -1,31 +1,33 @@
 import { ResponseDTO } from '@backend/services/responseDTO.js';
-import { AiTwotoneAlert } from "react-icons/ai";
 import { FetchState } from 'src/hooks/useFetch.js';
-import { cls } from "../../../../utils/classNames.js";
-import Heading from './Heading.js';
+import Header from './Feed-heading.js';
 import Post from './Post.js';
-import style from "../localnews.module.scss";
+import EmptyPost from './Post-empty.js';
+import style from "./feed.module.scss";
+import LastPost from './Post-last.js';
 
 interface Props { 
   title: string
   data: FetchState<ResponseDTO[]>
+  icon: JSX.Element
 }
 
-function Posts({title, data}: Props) {
+function Feed({title, icon, data}: Props) {
   const { data: posts, loading, error } = data
 
   if (loading) return <span>Loading...</span>
   if (error) return <span>{error.name}: {error.message}</span>
 
   return (
-    <div className={cls(style.container)}> {/* here was full-width */}
-      <Heading title={title} icon={<AiTwotoneAlert className="text-2xl"/>} />
+    <div className={style.feed}>
+      <Header title={title} icon={icon} />
       {posts ?
         posts.map(article => <Post article={article}/>)
-      : <span>Data could not be fetched.</span>
+      : <EmptyPost />
       }
+      <LastPost />
     </div>
   )
 }
 
-export default Posts
+export default Feed

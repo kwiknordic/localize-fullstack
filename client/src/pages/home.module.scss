@@ -1,6 +1,6 @@
-$shared: "../../shared.module.scss";
-
 .container {
+  width: 100%;
+  flex-grow: 1;
   background-color: var(--bg-color);
 /*   padding-bottom: 2rem; */
   padding-inline: 0.5rem;

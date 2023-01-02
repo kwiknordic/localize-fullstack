@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDarkMode } from './hooks/ThemeContext.jsx'
 import Header from './components/header/Header.jsx'
-import Home from './components/main/Home.jsx'
+import Home from './pages/Home.jsx'
 import Footer from './components/footer/Footer.jsx'
 
 function App() {
