@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaSlidersH } from "react-icons/fa"
+import style from "./feed.module.scss";
 
 type Props = {
   title: string,
@@ -10,7 +11,7 @@ function FeedHeading({title, icon}: Props) {
   const styledIcon = React.cloneElement(icon, {className: "text-2xl"})
 
   return (
-    <div className="flex justify-between items-center px-4">
+    <div className={style.header}>
     <div className="flex items-center space-x-4">
       {styledIcon}
       <h2>{title}</h2>

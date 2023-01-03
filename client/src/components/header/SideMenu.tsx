@@ -3,17 +3,17 @@ import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { useDarkMode } from "../../hooks/ThemeContext.js"
 import { CgDarkMode } from "react-icons/cg"
-
-// Styling
 import style from "./header.module.scss"
-import { cls } from "../../utils/classNames.js";
 
-function SideMenu({isMenuOpen}) {
-  const [darkMode, setDarkMode] = useContext(useDarkMode);
+type Params = { isMenuOpen: boolean }
+
+function SideMenu({isMenuOpen}: Params) {
+  const [darkMode, setDarkMode]: any = useContext(useDarkMode);
+  const currentMode = darkMode ? "Dark mode" : "Light mode"
 
   return (
-    <div className={cls(style.sideMenu, isMenuOpen ? style.visible : style.hidden)}>
-      <nav className='grow'>
+    <div className={`${style.sideMenu} ${isMenuOpen ? style.visible : style.hidden}`}>
+      <nav style={{flexGrow: "1"}}>
         <ul>
           <li><Link to="/">Kompetens</Link></li>
           <li><Link to="/">Portfolio</Link></li>
@@ -22,10 +22,8 @@ function SideMenu({isMenuOpen}) {
         </ul>
       </nav>
       <div className={style.toggleTheme} onClick={() => setDarkMode(!darkMode)}>
-        <span>{darkMode ? "Dark mode" : "Light mode"}</span>
-        <CgDarkMode 
-          className={cls(style.icon)}
-        />
+        <span>{currentMode}</span>
+        <CgDarkMode className={style.icon} />
       </div>
     </div>
   )

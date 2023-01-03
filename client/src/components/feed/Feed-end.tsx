@@ -1,6 +1,6 @@
 import style from "./feed.module.scss"
 
-function LastPost() {
+function EndOfFeed() {
 
   return (
     <article className={`${style.article} rounded-corners`}>
@@ -10,4 +10,4 @@ function LastPost() {
   )
 }
 
-export default LastPost
+export default EndOfFeed

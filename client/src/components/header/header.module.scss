@@ -1,8 +1,6 @@
-$shared: "../../shared.module.scss";
-
 .container {
   width: 100%;
-  height: var(--header-height);
+/*   height: var(--header-height); */
   position: relative;
   top: 0;
   background-color: var(--bg-color);
@@ -29,16 +27,18 @@ a {
 }
 
 .search {
-  composes: grow rounded-corners from $shared;
   display: flex;
+  flex-grow: 1;
   align-items: center;
   padding-block: 0.3rem;
   padding-left: 0.6rem;
   padding-right: 0.4rem;
   background-color: var(--accent-bg-color);
 
-  & > button {
+  & > .icon, & > button {
+    font-size: 1.2rem;
     border: 0;
+    color: var(--icon-color);
     background-color: var(--accent-bg-color);
   }
 
@@ -52,10 +52,6 @@ a {
 
     &:focus {
       outline: none;
-    }
-
-    & > .icon {
-      font-size: 1rem;
     }
   }
 }
@@ -91,35 +87,6 @@ a {
     border-top: 5px solid var(--primary-color);
     cursor: pointer;
   }
-
-/*   & * > .icon {
-    font-size: 1.6rem;
-  } */
-}
-
-.panelMenu {
-  display: flex;
-  align-items: center;
-  padding-bottom: 2rem;
-
-/*   & > * {
-  margin-inline: 0.5rem;
-  } */
-
-  & > .icon {
-    font-size: 1.2rem;
-    color: var(--accent-bg-color);
-
-    &:hover, &:focus {
-      /* color: var(--heading-color); */
-      opacity: 0.8;
-    }
-  }
-
-  & > nav > .icon {
-    font-size: 1.6rem;
-    margin-inline: 0.5rem;
-  }
 }
 
 .rightNav {
@@ -138,9 +105,4 @@ a {
   & .visible {
     position: unset;
   }
-}
-
-.icon {
-  color: var(--icon-color);
-  cursor: pointer;
 }
