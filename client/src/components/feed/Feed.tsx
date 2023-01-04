@@ -1,9 +1,9 @@
 import { ResponseDTO } from '@backend/services/responseDTO.js';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FetchState } from 'src/hooks/useFetch.js';
-import { getClientHeightNonHeader, getMinWidth } from '../../utils/screenSize.js';
+import { getWidth } from '../../utils/screenSize.js';
 import EndOfFeed from './Feed-end.js';
-import Header from './Feed-heading.js';
+import SubHeader from './Feed-Subheader.js';
 import style from "./feed.module.scss";
 import EmptyPost from './Post-empty.js';
 import Post from './Post.js';
@@ -16,15 +16,11 @@ interface Props {
 
 function Feed({title, icon, data}: Props) {
   const { data: posts, loading, error } = data
-  const [minWidth, setMinWidth] = useState(getMinWidth())
-  const [height, setHeight] = useState(getClientHeightNonHeader())
+  const [width, setWidth] = useState(getWidth())
 
   useEffect(() => {
     // write logic that disregards changes smaller than 20px
-    window.addEventListener("resize", () => {
-      setMinWidth(getMinWidth())
-      setHeight(getClientHeightNonHeader())
-    })
+    window.addEventListener("resize", () => setWidth(getWidth()))
     // no clean-up is written, needs to listen for entire lifecycle
   }, [])
 
@@ -33,8 +29,8 @@ function Feed({title, icon, data}: Props) {
 
   return (
     <div className={style.feed}>
-      <Header title={title} icon={icon} />
-      <div className={style.scrollContainer} style={{minWidth: minWidth, height: height }}>
+      <SubHeader title={title} icon={icon} />
+      <div className={style.scrollContainer} style={{width: width}}>
         {posts ?
           posts.map(article => <Post article={article}/>)
         : <EmptyPost />

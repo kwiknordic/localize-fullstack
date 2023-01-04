@@ -7,7 +7,7 @@ type Props = {
   icon: JSX.Element
 }
 
-function FeedHeading({title, icon}: Props) {
+function SubHeader({title, icon}: Props) {
   const styledIcon = React.cloneElement(icon, {className: "text-2xl"})
 
   return (
@@ -23,4 +23,4 @@ function FeedHeading({title, icon}: Props) {
   )
 }
 
-export default FeedHeading
+export default SubHeader

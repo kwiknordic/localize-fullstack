@@ -1,6 +1,8 @@
 .container {
   width: 100%;
   flex-grow: 1;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   background-color: var(--bg-color);
   padding-inline: 1rem;
   display: flex;
@@ -9,11 +11,10 @@
   flex-wrap: nowrap;
   align-items: flex-start;
   overflow-y: hidden;
-/*   justify-content: center; */
 }
 
-/* @media (min-width: 65rem) {
+@media (min-width: 61rem) {
   .container {
-    flex-wrap:
+    justify-content: center;
   }
-} */
+}
