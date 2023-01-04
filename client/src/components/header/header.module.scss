@@ -59,13 +59,17 @@ a {
 .sideMenu {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  z-index: 1;
   width: 100%;
   position: absolute;
   left: 0;
   top: 0;
   background-color: var(--accent-bg-color);
   transition: 0.5s;
+  
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
   
   & ul {
     padding-inline: 1rem;

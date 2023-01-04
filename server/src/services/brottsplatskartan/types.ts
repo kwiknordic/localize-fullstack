@@ -1,11 +1,3 @@
-/* export interface BrottsplatsDTO {
-  title: string,
-  description: string,
-  locations: string[],
-  date: string
-  image: string
-} */
-
 export interface Brottsplatskartan {
   links: any[]
   meta: Meta

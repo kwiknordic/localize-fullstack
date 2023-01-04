@@ -8,6 +8,12 @@ import {
 export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction): unknown => {
   console.log("I am inside ErrorHandler")
 
+  if (err.message.includes("401")) {
+    return res
+      .status(StatusCodes.UNAUTHORIZED)
+      .json(ReasonPhrases.UNAUTHORIZED)
+  }
+
   if (err instanceof SyntaxError) {
     return res
       .status(StatusCodes.SERVICE_UNAVAILABLE)

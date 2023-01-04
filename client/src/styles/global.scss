@@ -11,6 +11,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
 }
 
 #root > * {
@@ -31,6 +34,7 @@
 
 html {
   overflow-y: hidden;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 

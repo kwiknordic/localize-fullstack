@@ -8,6 +8,7 @@ export const sendPosts = (serviceRequest: Function): ReturnFunction => {
       const data = await serviceRequest(res.locals.params)
       res.status(StatusCodes.ACCEPTED).json(data)
     } catch (error) {
+      console.log("Error catched in sendPosts.ts: ", error)
       next(error)
     }
   }

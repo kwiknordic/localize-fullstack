@@ -6,10 +6,13 @@ import { fetchBrottsplatskartan as fetchBPK } from "../services/brottsplatskarta
 import { validationSchema as bpkSchema } from "../services/brottsplatskartan/validationSchema.js"
 import { fetchMitti } from "../services/mitti/fetchMitti.js"
 import { validationSchema as mittiSchema } from "../services/mitti/validationSchema.js"
+import { validationSchema as ticketMaster } from "../services/ticketmaster/validationSchema.js"
+import { fetchTicketmaster } from "../services/ticketmaster/fetchTicketmaster.js"
 const router = express.Router()
 
 router.get("/brottsplatskartan", validateQuery(bpkSchema), sendPosts(fetchBPK))
 router.get("/mitti", validateQuery(mittiSchema), sendPosts(fetchMitti))
+router.get("/events", validateQuery(ticketMaster), sendPosts(fetchTicketmaster))
 
 router.use(() => {
 throw new notFoundError()

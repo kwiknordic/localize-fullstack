@@ -2,8 +2,10 @@ import useFetch from "../hooks/useFetch.js"
 import { ResponseDTO } from "@backend/services/responseDTO.js"
 import { Params } from "@backend/services/mitti/validationSchema.js"
 
+// change URL to wherever the Backend is
+
 const apiConfig = {
-  url: "http://localhost",
+  url: "http://192.168.1.132",
   port: "5001",
   endpoint: "mitti"
 }
