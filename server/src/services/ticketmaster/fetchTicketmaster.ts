@@ -4,7 +4,7 @@ import { Ticketmaster } from "./types.js";
 import { Params } from "./validationSchema.js";
 import { API_KEY } from "../../consts.js";
 import { ResponseDTO } from "../responseDTO.js";
-/* import { constructDTO } from "./constructDTO.js"; */
+import { constructDTO } from "./constructDTO.js";
 
 const fallbackParams = {
   baseURL: 'https://app.ticketmaster.com',
@@ -19,8 +19,7 @@ const fallbackParams = {
 }
 
 const query = fallbackParams.query
-//type Function = (param: Params) => Promise<ResponseDTO[]>
-type Function = (param: Params) => Promise<any>
+type Function = (param: Params) => Promise<ResponseDTO[]>
 
 export const fetchTicketmaster: Function = async ({city = query.city, countryCode = query.countryCode, page = query.page}) => {
   const { baseURL, endpoint } = fallbackParams
@@ -38,6 +37,5 @@ export const fetchTicketmaster: Function = async ({city = query.city, countryCod
   const json: Ticketmaster = await response.json()
   if (!json || !json._embedded.events) throw new notFoundError() 
   
-  return json
-  //return constructDTO(json)
+  return constructDTO(json)
 }
