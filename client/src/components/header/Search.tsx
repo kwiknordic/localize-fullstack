@@ -6,7 +6,7 @@ function Search() {
     <>
       <form className={`${style.search} rounded-corners`}>
         <FaSearch className={style.icon} />
-        <input type="search" placeholder='Filter posts..' autoFocus/>
+        <input type="search" placeholder='Filtrera..' autoFocus/>
         <button type="submit" onSubmit={(e) => e.preventDefault}>
           <FaArrowCircleRight className={style.icon} />
         </button>

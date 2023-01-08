@@ -56,6 +56,8 @@ a {
   }
 }
 
+// SideMenu.tsx
+
 .sideMenu {
   display: flex;
   flex-direction: column;
@@ -71,18 +73,13 @@ a {
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
   
-  & ul {
+  ul {
     padding-inline: 1rem;
     margin-top: 2rem;
     list-style-type: none;
   }
 
-  &.hidden {
-    translate: -100% 0;
-    overflow: hidden;
-  }
-
-  & .toggleTheme {
+  .toggleTheme {
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -91,7 +88,25 @@ a {
     border-top: 5px solid var(--primary-color);
     cursor: pointer;
   }
+
+  .toggleFeed {
+    padding: 1rem;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 5px solid var(--primary-color);
+    cursor: pointer;
+  }
+
+  &.hidden {
+    translate: -100% 0;
+    overflow: hidden;
+  }
 }
+
+// RightNav.tsx
 
 .rightNav {
   display: flex;

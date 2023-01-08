@@ -47,8 +47,9 @@
 // Feed-heading.jsx
 .header {
   display: flex;
-  justify-content: space-between;
+/*   justify-content: space-between; */
   align-items: center;
+  justify-content: center;
   padding-inline: 1rem;
   padding-bottom: 1rem;
 
@@ -58,21 +59,11 @@
     gap: 0.5rem;
   
     & > h2 {
-      color: var(--accent-bg-color);
+      color: var(--color);
     }
   
     & > .icon {
       font-size: 1.5rem;
     }
-  }
-}
-
-.dropdown {
-/*   color: var(--accent-bg-color); */
-/*   padding-right: 1rem; */
-  cursor: pointer;
-
-  & > .icon {
-    font-size: 1.2rem;
   }
 }

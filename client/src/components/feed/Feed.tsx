@@ -8,13 +8,14 @@ import style from "./feed.module.scss";
 import EmptyPost from './Post-empty.js';
 import Post from './Post.js';
 
-interface Props { 
+interface Props {
+  id: string,
   title: string
   data: FetchState<ResponseDTO[]>
   icon: JSX.Element
 }
 
-function Feed({title, icon, data}: Props) {
+function Feed({title, id, icon, data}: Props) {
   const { data: posts, loading, error } = data
   const [width, setWidth] = useState(getWidth())
 
@@ -28,11 +29,11 @@ function Feed({title, icon, data}: Props) {
   if (error) return <span>{error.name}: {error.message}</span>
 
   return (
-    <div className={style.feed}>
+    <div id={id} className={style.feed}>
       <SubHeader title={title} icon={icon} />
       <div className={style.scrollContainer} style={{width: width}}>
         {posts ?
-          posts.map(article => <Post article={article}/>)
+          posts.map(article => <Post article={article} key={`${article.title}-${article.date}`} />)
         : <EmptyPost />
         }
         <EndOfFeed />

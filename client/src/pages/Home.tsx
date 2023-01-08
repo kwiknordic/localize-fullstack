@@ -14,9 +14,9 @@ function Home() {
 
   return (
     <div className={style.container}>
-      <Feed title="Articles" data={mitti} icon={<IoNewspaper/>} />
-      <Feed title="Alerts" data={brottsplatskartan} icon={<AiTwotoneAlert/>} />
-      <Feed title="Events" data={ticketMaster} icon={<FaTheaterMasks/>} />
+      <Feed title="Artiklar" id="articleFeed" data={mitti} icon={<IoNewspaper/>} />
+      <Feed title="Händelser" id="alertFeed" data={brottsplatskartan} icon={<AiTwotoneAlert/>} />
+      <Feed title="Event" id="eventFeed" data={ticketMaster} icon={<FaTheaterMasks/>} />
     </div>
   )
 }

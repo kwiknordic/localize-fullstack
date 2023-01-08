@@ -1,7 +1,4 @@
 @import './css-variables.scss';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 #root {
   position: relative;
@@ -68,4 +65,8 @@ h3 {
 
 .rounded-corners {
   border-radius: 1rem;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  display: none;
 }

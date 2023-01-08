@@ -3,28 +3,38 @@ import { useEffect, useState } from "react";
 export interface FetchState<T> {
   data: T | undefined;
   loading: boolean;
-  error: Error | undefined;
+  error: Error | boolean;
 }
 
-const useFetch = <T>(url: string): FetchState<T> => {
+export const useFetch = <T,>(url: string): FetchState<T> => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch(url)
+    setLoading(true)
+    setError(false)
+    let isCancelled = false
+    const abortController = new AbortController();
+
+    fetch(url, { signal: abortController.signal })
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
-        setLoading(false);
+        if (!isCancelled) setData(data);
       })
       .catch((error) => {
-        setError(error);
+        if (!isCancelled) setError(error);
+      })
+      .finally(() => {
         setLoading(false);
-      });
-  }, []);
+      })
+
+      return () => {
+        abortController.abort()
+        isCancelled = true 
+      };
+
+}, [url]);
 
   return { data, loading, error };
 };
-
-export default useFetch;

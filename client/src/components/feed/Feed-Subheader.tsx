@@ -8,17 +8,17 @@ type Props = {
 }
 
 function SubHeader({title, icon}: Props) {
-  const styledIcon = React.cloneElement(icon, {className: "text-2xl"})
+  const styledIcon = React.cloneElement(icon, {className: `${style.icon}`})
 
   return (
     <div className={style.header}>
-    <div className="flex items-center space-x-4">
+    <div className={`${style.title}`}>
       {styledIcon}
       <h2>{title}</h2>
     </div>
-    <div className="text-lg">
+{/*     <div className="text-lg">
       <FaSlidersH/>
-    </div>
+    </div> */}
   </div>
   )
 }
