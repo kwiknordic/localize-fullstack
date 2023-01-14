@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { useDarkMode } from "../hooks/ThemeContext.js"
 import { CgDarkMode } from "react-icons/cg"
-import style from "./header/header.module.scss"
+import style from "./sidemenu.module.scss"
 
 type Params = { isMenuOpen: boolean }
 type HandleFeedFunc = (

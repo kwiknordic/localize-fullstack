@@ -1,0 +1,50 @@
+.sideMenu {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--accent-bg-color);
+  transition: 0.5s;
+
+  /* Offset the 5px border between darkmode-div */
+  margin-top: -5px;
+  
+  min-height: calc(100vh + 5px);
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
+  
+  ul {
+    padding-inline: 1rem;
+    margin-top: 2rem;
+    list-style-type: none;
+  }
+
+  .toggleTheme {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 5px solid var(--primary-color);
+    cursor: pointer;
+  }
+
+  .toggleFeed {
+    padding: 1rem;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 5px solid var(--primary-color);
+    cursor: pointer;
+  }
+
+  &.hidden {
+    translate: -100% 0;
+    overflow: hidden;
+  }
+}

@@ -36,10 +36,15 @@ a {
   background-color: var(--accent-bg-color);
 
   & > .icon, & > button {
-    font-size: 1.2rem;
     border: 0;
     color: var(--icon-color);
     background-color: var(--accent-bg-color);
+
+    svg {
+      height: 1.2rem;
+      width: 1.2rem;
+      padding-top: 0.2rem;
+    }
   }
 
   & > input {
@@ -53,56 +58,6 @@ a {
     &:focus {
       outline: none;
     }
-  }
-}
-
-// SideMenu.tsx
-
-.sideMenu {
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: var(--accent-bg-color);
-  transition: 0.5s;
-  
-  min-height: 100vh;
-  /* mobile viewport bug fix */
-  min-height: -webkit-fill-available;
-  
-  ul {
-    padding-inline: 1rem;
-    margin-top: 2rem;
-    list-style-type: none;
-  }
-
-  .toggleTheme {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-top: 5px solid var(--primary-color);
-    cursor: pointer;
-  }
-
-  .toggleFeed {
-    padding: 1rem;
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    border-top: 5px solid var(--primary-color);
-    cursor: pointer;
-  }
-
-  &.hidden {
-    translate: -100% 0;
-    overflow: hidden;
   }
 }
 
