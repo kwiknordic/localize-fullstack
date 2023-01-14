@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import { useContext } from "react";
-import { useDarkMode } from "../../hooks/ThemeContext.js"
+import { useDarkMode } from "../hooks/ThemeContext.js"
 import { CgDarkMode } from "react-icons/cg"
-import style from "./header.module.scss"
+import style from "./header/header.module.scss"
 
 type Params = { isMenuOpen: boolean }
 type HandleFeedFunc = (
@@ -24,14 +24,14 @@ const handleFeed: HandleFeedFunc = (event, id) => {
   }
 }
 
-function SideMenu({isMenuOpen}: Params) {
+function SideMenu({ isMenuOpen }: Params) {
   const [darkMode, setDarkMode]: any = useContext(useDarkMode);
   const currentMode = darkMode ? "Mörkt läge" : "Ljust läge"
 
   return (
     <div className={`${style.sideMenu} ${isMenuOpen ? style.visible : style.hidden}`}>
       <div className={style.toggleFeed}>
-        <input onChange={(event) => { handleFeed(event, "articleFeed") }} type="checkbox" checked/>
+        <input onChange={(event) => { handleFeed(event, "articleFeed") }} type="checkbox" checked />
         <span>Artiklar</span>
       </div>
       <div className={style.toggleTheme} onClick={() => setDarkMode(!darkMode)}>

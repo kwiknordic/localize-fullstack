@@ -1,4 +1,4 @@
-import useFetch from "../hooks/useFetch.js"
+import {useFetch} from "../hooks/useFetch.js"
 import { ResponseDTO } from "@backend/services/responseDTO.js"
 import { Params } from "@backend/services/ticketmaster/validationSchema.js"
 

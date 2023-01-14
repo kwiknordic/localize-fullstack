@@ -1,7 +1,6 @@
 import { ResponseDTO } from '@backend/services/responseDTO.js';
-import { useEffect, useRef, useState } from 'react';
 import { FetchState } from 'src/hooks/useFetch.js';
-import { getWidth } from '../../utils/screenSize.js';
+import { useResizeListener } from "../../hooks/useResizeListener.js"
 import EndOfFeed from './Feed-end.js';
 import SubHeader from './Feed-Subheader.js';
 import style from "./feed.module.scss";
@@ -15,26 +14,21 @@ interface Props {
   icon: JSX.Element
 }
 
-function Feed({title, id, icon, data}: Props) {
+function Feed({ title, id, icon, data }: Props) {
   const { data: posts, loading, error } = data
-  const [width, setWidth] = useState(getWidth())
-
-  useEffect(() => {
-    // write logic that disregards changes smaller than 20px
-    window.addEventListener("resize", () => setWidth(getWidth()))
-    // no clean-up is written, needs to listen for entire lifecycle
-  }, [])
+  const width = useResizeListener()
+  const setWidth = width < 450 ? (width * 0.88) : 450
 
   if (loading) return <span>Loading...</span>
-  if (error) return <span>{error.name}: {error.message}</span>
+  if (error instanceof Error) return <span>{error.name}: {error.message}</span>
 
   return (
     <div id={id} className={style.feed}>
       <SubHeader title={title} icon={icon} />
-      <div className={style.scrollContainer} style={{width: width}}>
+      <div className={style.scrollContainer} style={{ width: setWidth }}>
         {posts ?
           posts.map(article => <Post article={article} key={`${article.title}-${article.date}`} />)
-        : <EmptyPost />
+          : <EmptyPost />
         }
         <EndOfFeed />
       </div>
