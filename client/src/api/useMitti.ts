@@ -1,12 +1,11 @@
 import {useFetch} from "../hooks/useFetch.js"
 import { ResponseDTO } from "@backend/services/responseDTO.js"
 import { Params } from "@backend/services/mitti/validationSchema.js"
-
-// change URL to wherever the Backend is
+import { PROD, getConnectionConfig } from "./utils/connectionConfig.js"
 
 const apiConfig = {
-  url: "https://localize-production.up.railway.app",
-  endpoint: "mitti"
+  endpoint: "mitti",
+  ...getConnectionConfig()
 }
 
 // find a way to share params from server-side
@@ -16,13 +15,15 @@ export function useMitti(params?: Params) {
 }
 
 function constructURL(params?: Params) {
-  const { url, endpoint } = apiConfig
-  if (!params || Object.keys(params)) return `${url}/${endpoint}`
+  const { url, endpoint, port } = apiConfig
+  if (!params || Object.keys(params) && PROD) return `${url}/${endpoint}`
+  if (!params || Object.keys(params) && !PROD) return `${url}:${port}/${endpoint}`
 
   const query = Object
     .entries(params)
     .map(entry => `${entry.at(0)}=${entry.at(1)}`)
     .reduce((from, to) => `${from}&${to}`)
 
+  if (PROD) return `${url}:${port}/${endpoint}/?${query}`
   return `${url}/${endpoint}/?${query}`
 }

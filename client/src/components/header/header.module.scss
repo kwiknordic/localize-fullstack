@@ -65,6 +65,7 @@ a {
 
 .rightNav {
   display: flex;
+  cursor: pointer;
 
   & > .icon {
     z-index: 2;

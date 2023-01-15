@@ -12,7 +12,7 @@
   /* Offset the 5px border between darkmode-div */
   margin-top: -5px;
   
-  min-height: calc(100vh + 5px);
+  height: calc(100vh + 5px);
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
   

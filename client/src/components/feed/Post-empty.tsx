@@ -4,7 +4,7 @@ function EmptyPost() {
   return (
     <article className={`${style.article} rounded-corners`}>
       <h3>No posts to show</h3>
-      <p>Please try reloading this feed.</p>
+      <p>Please stand by, the server might have just woken up..</p>
     </article>
   )
 }

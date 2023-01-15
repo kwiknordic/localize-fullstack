@@ -9,14 +9,14 @@ import style from "./home.module.scss";
 
 function Home() {
   const brottsplatskartan = useBrottsplatskartan()
-  const mitti = useMitti({from: 3})
+  const mitti = useMitti()
   const ticketMaster = useTicketmaster()
 
   return (
     <div className={style.container}>
-      <Feed title="Artiklar" id="articleFeed" data={mitti} icon={<IoNewspaper/>} />
-      <Feed title="Händelser" id="alertFeed" data={brottsplatskartan} icon={<AiTwotoneAlert/>} />
-      <Feed title="Event" id="eventFeed" data={ticketMaster} icon={<FaTheaterMasks/>} />
+      <Feed title="Artiklar" id="articleFeed" data={mitti} icon={<IoNewspaper />} />
+      <Feed title="Händelser" id="alertFeed" data={brottsplatskartan} icon={<AiTwotoneAlert />} />
+      <Feed title="Event" id="eventFeed" data={ticketMaster} icon={<FaTheaterMasks />} />
     </div>
   )
 }
