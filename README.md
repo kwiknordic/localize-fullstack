@@ -15,7 +15,7 @@ Sammanställa flera källor av lokala nyheter, event och händelser i *Stockholm
 - Serversidan ligger uppe på Railway för möjlighet att förfråga i Live-demo.
 - Klientsidan är byggd med React och renderas hos användaren i webbläsaren (CSR)
 
-# Kvar att göra: App
+# Kvar att göra
 - Filtrera artiklar baserat på input
 - Visa/dölj specifik källa genom en toggel i Sidomenyn
 - Lägga till fler källor
