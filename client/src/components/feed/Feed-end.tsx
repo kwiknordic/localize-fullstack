@@ -4,8 +4,8 @@ function EndOfFeed() {
 
   return (
     <article className={`${style.article} ${style.empty} rounded-corners`}>
-      <h3>You have come to the end.</h3>
-      <p>There are no more posts to show.</p>
+      <h3>Du har kommit till slutet.</h3>
+      <p>Det finns inga fler artiklar att visa.</p>
     </article>
   )
 }

@@ -3,8 +3,8 @@ import style from "./feed.module.scss"
 function LoadingFeed() {
   return (
     <article className={`${style.article} rounded-corners`}>
-      <h3>Posts are loading</h3>
-      <p>Please stand by, The server just woke up..</p>
+      <h3>Artiklar laddas in</h3>
+      <p>Vänligen vänta, servern har precis vaknat..</p>
     </article>
   )
 }

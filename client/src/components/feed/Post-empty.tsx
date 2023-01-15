@@ -3,8 +3,8 @@ import style from "./feed.module.scss"
 function EmptyPost() {
   return (
     <article className={`${style.article} rounded-corners`}>
-      <h3>No posts to show</h3>
-      <p>Please stand by, the server might have just woken up..</p>
+      <h3>Det finns inga artiklar att visa</h3>
+      <p>Vänligen vänta, servern kan precis ha vaknat upp..</p>
     </article>
   )
 }
