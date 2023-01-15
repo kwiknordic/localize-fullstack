@@ -2,10 +2,8 @@ import {useFetch} from "../hooks/useFetch.js"
 import { ResponseDTO } from "@backend/services/responseDTO.js"
 import { Params } from "@backend/services/brottsplatskartan/validationSchema.js"
 
-// change URL to wherever the Backend is
-
 const apiConfig = {
-  url: "http://192.168.1.132",
+  url: "https://localize-production.up.railway.app",
   port: "5001",
   endpoint: "brottsplatskartan"
 }

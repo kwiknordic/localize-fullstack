@@ -6,7 +6,7 @@ import {
 } from 'http-status-codes';
 
 export const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction): unknown => {
-  console.log("I am inside ErrorHandler")
+  console.log("I am inside ErrorHandler", err)
 
   if (err.message.includes("401")) {
     return res
