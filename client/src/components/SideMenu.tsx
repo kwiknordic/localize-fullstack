@@ -28,13 +28,20 @@ function SideMenu({ isMenuOpen }: Params) {
   const [darkMode, setDarkMode]: any = useContext(useDarkMode);
   const currentMode = darkMode ? "Mörkt läge" : "Ljust läge"
 
+  function toggleTheme() {
+    setDarkMode((prev: boolean) => {
+      localStorage.setItem("darkMode", JSON.stringify(!prev));
+      return !prev
+    })
+  }
+
   return (
     <div className={`${style.sideMenu} ${isMenuOpen ? style.visible : style.hidden}`}>
       <div className={style.toggleFeed}>
-        <input onChange={(event) => { handleFeed(event, "articleFeed") }} type="checkbox" checked />
-        <span>Artiklar</span>
+        {/*         <input onChange={(event) => { handleFeed(event, "articleFeed") }} type="checkbox" checked />
+        <span>Artiklar</span> */}
       </div>
-      <div className={style.toggleTheme} onClick={() => setDarkMode(!darkMode)}>
+      <div className={style.toggleTheme} onClick={toggleTheme}>
         <span>{currentMode}</span>
         <CgDarkMode className={style.icon} />
       </div>
