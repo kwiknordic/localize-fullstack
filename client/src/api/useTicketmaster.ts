@@ -6,7 +6,6 @@ import { Params } from "@backend/services/ticketmaster/validationSchema.js"
 
 const apiConfig = {
   url: "https://localize-production.up.railway.app",
-  port: "5001",
   endpoint: "events"
 }
 
@@ -16,9 +15,9 @@ export function useTicketmaster(params?: Params) {
 }
 
 function constructURL(params?: Params) {
-  const { url, port, endpoint } = apiConfig
-  if (!params || Object.keys(params)) return `${url}:${port}/${endpoint}`
+  const { url, endpoint } = apiConfig
+  if (!params || Object.keys(params)) return `${url}/${endpoint}`
 
   const query = new URLSearchParams({...params}).toString();
-  return `${url}:${port}/${endpoint}/?${query}`
+  return `${url}/${endpoint}/?${query}`
 }

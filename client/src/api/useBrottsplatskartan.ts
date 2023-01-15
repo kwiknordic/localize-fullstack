@@ -4,7 +4,6 @@ import { Params } from "@backend/services/brottsplatskartan/validationSchema.js"
 
 const apiConfig = {
   url: "https://localize-production.up.railway.app",
-  port: "5001",
   endpoint: "brottsplatskartan"
 }
 
@@ -14,13 +13,13 @@ export function useBrottsplatskartan(params?: Params) {
 }
 
 function constructURL(params?: Params) {
-  const { url, port, endpoint } = apiConfig
-  if (!params || Object.keys(params)) return `${url}:${port}/${endpoint}`
+  const { url, endpoint } = apiConfig
+  if (!params || Object.keys(params)) return `${url}/${endpoint}`
 
   const query = Object
   .entries(params)
   .map(entry => `${entry.at(0)}=${entry.at(1)}`)
   .reduce((long, lat) => `${long}&${lat}`)
 
-  return `${url}:${port}/${endpoint}/?${query}`
+  return `${url}/${endpoint}/?${query}`
 }

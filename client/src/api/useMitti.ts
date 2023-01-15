@@ -6,7 +6,6 @@ import { Params } from "@backend/services/mitti/validationSchema.js"
 
 const apiConfig = {
   url: "https://localize-production.up.railway.app",
-  port: "5001",
   endpoint: "mitti"
 }
 
@@ -17,13 +16,13 @@ export function useMitti(params?: Params) {
 }
 
 function constructURL(params?: Params) {
-  const { url, port, endpoint } = apiConfig
-  if (!params || Object.keys(params)) return `${url}:${port}/${endpoint}`
+  const { url, endpoint } = apiConfig
+  if (!params || Object.keys(params)) return `${url}/${endpoint}`
 
   const query = Object
     .entries(params)
     .map(entry => `${entry.at(0)}=${entry.at(1)}`)
     .reduce((from, to) => `${from}&${to}`)
 
-  return `${url}:${port}/${endpoint}/?${query}`
+  return `${url}/${endpoint}/?${query}`
 }
