@@ -1,6 +1,6 @@
 # Localize
-Live-demo: https://localize.kwik.se
-Backend-deployment på Railway: https://railway.app/project/59da9af0-7a54-4750-840a-5156939c3121
+- Live-demo: https://localize.kwik.se
+- Backend-deployment på Railway: https://railway.app/project/59da9af0-7a54-4750-840a-5156939c3121
 
 ## Om projektet
 Sammanställa flera källor av lokala nyheter, event och händelser i *Stockholm* och presentera det i en enkel upp-och-ner, vänster-till-höger, kortvy likt Reddit.
