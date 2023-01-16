@@ -27,6 +27,7 @@ const handleFeed: HandleFeedFunc = (event, id) => {
 function SideMenu({ isMenuOpen }: Params) {
   const [darkMode, setDarkMode]: any = useContext(useDarkMode);
   const currentMode = darkMode ? "Mörkt läge" : "Ljust läge"
+  const sideMenuClass = isMenuOpen ? `${style.sideMenu}` : `${style.sideMenu} ${style.hidden}`
 
   function toggleTheme() {
     setDarkMode((prev: boolean) => {
@@ -36,7 +37,7 @@ function SideMenu({ isMenuOpen }: Params) {
   }
 
   return (
-    <div className={`${style.sideMenu} ${isMenuOpen ? style.visible : style.hidden}`}>
+    <div className={sideMenuClass}>
       <div className={style.toggleFeed}>
         {/*         <input onChange={(event) => { handleFeed(event, "articleFeed") }} type="checkbox" checked />
         <span>Artiklar</span> */}
