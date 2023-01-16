@@ -1,41 +1,43 @@
 import { ResponseDTO } from '@backend/services/responseDTO.js';
+import { ReactNode } from 'react';
 import { FetchState } from 'src/hooks/useFetch.js';
 import { useResizeListener } from "../../hooks/useResizeListener.js"
-import EndOfFeed from './Feed-end.js';
-import ErrorFeed from './Feed-error.js';
-import LoadingFeed from './Feed-loading.js';
-import SubHeader from './Feed-Subheader.js';
+import FeedHeading from './FeedHeading.js';
 import style from "./feed.module.scss";
-import EmptyPost from './Post-empty.js';
-import Post from './Post.js';
+import { Post, EmptyPost, LoadingPost, ErrorPost, EndOfPosts } from './Post.js';
 
-interface Props {
+type FeedContainerProps = {
   id: string,
   title: string
-  data: FetchState<ResponseDTO[]>
   icon: JSX.Element
+  children?: ReactNode
 }
 
-function Feed({ title, id, icon, data }: Props) {
-  const { data: posts, loading, error } = data
+export function FeedContainer({ id, title, icon, children }: FeedContainerProps) {
   const width = useResizeListener()
   const setWidth = width < 450 ? (width * 0.88) : 450
-  const isError = error instanceof Error
 
   return (
     <div id={id} className={style.feed}>
-      <SubHeader title={title} icon={icon} />
+      <FeedHeading title={title} icon={icon} />
       <div className={style.scrollContainer} style={{ width: setWidth }}>
-        {loading && <LoadingFeed />}
-        {isError && <ErrorFeed name={error.name} message={error.message} />}
-        {posts ?
-          posts.map(article => <Post article={article} key={`${article.title}-${article.date}`} />)
-          : <EmptyPost />
-        }
-        {posts && <EndOfFeed />}
+        {children}
       </div>
     </div>
   )
 }
 
-export default Feed
+export function Feed({ data }: { data: FetchState<ResponseDTO[]> }) {
+  const { data: posts, loading, error } = data
+
+  if (loading) return <LoadingPost />
+  if (error instanceof Error) return <ErrorPost name={error.name} message={error.message} />
+
+  return (
+    <>
+      {posts ? posts.map(article => <Post article={article} key={`${article.title}-${article.date}`} />)
+        : <EmptyPost />}
+      {posts && <EndOfPosts />}
+    </>
+  )
+}

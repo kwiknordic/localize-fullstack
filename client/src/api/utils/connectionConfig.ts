@@ -1,5 +1,5 @@
 // false if you want to connect to your local server-side env.
-export const PROD = true
+export const PROD = false
 
 export function getConnectionConfig() {
   if (!PROD) return {

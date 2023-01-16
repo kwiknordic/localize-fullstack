@@ -1,5 +1,4 @@
 import React from 'react'
-/* import { FaSlidersH } from "react-icons/fa" */
 import style from "./feed.module.scss";
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
   icon: JSX.Element
 }
 
-function SubHeader({ title, icon }: Props) {
+function FeedHeading({ title, icon }: Props) {
   const styledIcon = React.cloneElement(icon, { className: `${style.icon}` })
 
   return (
@@ -16,11 +15,8 @@ function SubHeader({ title, icon }: Props) {
         {styledIcon}
         <h2>{title}</h2>
       </div>
-      {/*     <div className="text-lg">
-      <FaSlidersH/>
-    </div> */}
     </div>
   )
 }
 
-export default SubHeader
+export default FeedHeading

@@ -15,8 +15,8 @@ export function useTicketmaster(params?: Params) {
 
 function constructURL(params?: Params) {
   const { url, endpoint, port } = apiConfig
-  if (!params || Object.keys(params) && PROD) return `${url}/${endpoint}`
-  if (!params || Object.keys(params) && !PROD) return `${url}:${port}/${endpoint}`
+  if (!params && PROD) return `${url}/${endpoint}`
+  if (!params && !PROD) return `${url}:${port}/${endpoint}`
 
   const query = new URLSearchParams({...params}).toString();
   if (PROD) return `${url}/${endpoint}/?${query}`

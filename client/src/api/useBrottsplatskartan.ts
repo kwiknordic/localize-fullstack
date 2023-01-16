@@ -15,14 +15,14 @@ export function useBrottsplatskartan(params?: Params) {
 
 function constructURL(params?: Params) {
   const { url, endpoint, port } = apiConfig
-  if (!params || Object.keys(params) && PROD) return `${url}/${endpoint}`
-  if (!params || Object.keys(params) && !PROD) return `${url}:${port}/${endpoint}`
+  if (!params && PROD) return `${url}/${endpoint}`
+  if (!params && !PROD) return `${url}:${port}/${endpoint}`
 
-  const query = Object
-  .entries(params)
-  .map(entry => `${entry.at(0)}=${entry.at(1)}`)
-  .reduce((long, lat) => `${long}&${lat}`)
-
+  const formattedParams = Object.entries(params!)
+  .filter((param) => param[1] !== undefined)
+  .map(param => [param[0], String(param[1])])
+  
+  const query = new URLSearchParams(formattedParams).toString();
   if (PROD) return `${url}/${endpoint}/?${query}`
   return `${url}:${port}/${endpoint}/?${query}`
 }

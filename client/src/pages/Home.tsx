@@ -4,7 +4,7 @@ import { IoNewspaper } from "react-icons/io5";
 import { useBrottsplatskartan } from '../api/useBrottsplatskartan.js';
 import { useMitti } from '../api/useMitti.js';
 import { useTicketmaster } from '../api/useTicketmaster.js';
-import Feed from '../components/feed/Feed.js';
+import { Feed, FeedContainer } from '../components/feed/Feed.js';
 import style from "./home.module.scss";
 
 function Home() {
@@ -14,9 +14,15 @@ function Home() {
 
   return (
     <div className={style.container}>
-      <Feed title="Artiklar" id="articleFeed" data={mitti} icon={<IoNewspaper />} />
-      <Feed title="Händelser" id="alertFeed" data={brottsplatskartan} icon={<AiTwotoneAlert />} />
-      <Feed title="Event" id="eventFeed" data={ticketMaster} icon={<FaTheaterMasks />} />
+      <FeedContainer title="Artiklar" id="articleFeed" icon={<IoNewspaper />}>
+        <Feed data={mitti} />
+      </FeedContainer>
+      <FeedContainer title="Händelser" id="alertFeed" icon={<AiTwotoneAlert />}>
+        <Feed data={brottsplatskartan} />
+      </FeedContainer>
+      <FeedContainer title="Event" id="eventFeed" icon={<FaTheaterMasks />}>
+        <Feed data={ticketMaster} />
+      </FeedContainer>
     </div>
   )
 }
