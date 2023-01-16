@@ -1,6 +1,7 @@
 import { Ticketmaster } from "./types.js"
 import { ResponseDTO } from "../responseDTO.js"
 import { formatDates } from "../../utils/formatters.js"
+import * as nodeCrypto from "node:crypto"
 
 export function constructDTO(unmappedData: Ticketmaster) {
   return unmappedData._embedded.events.map((obj) => {
@@ -11,6 +12,7 @@ export function constructDTO(unmappedData: Ticketmaster) {
   `
 
     return {
+      id: nodeCrypto.randomUUID(),
       title: title,
       description: description.trim(),
       locations: obj._embedded.venues[0].address.line1,

@@ -1,4 +1,4 @@
-import {useFetch} from "../hooks/useFetch.js"
+import { useFetchQuery } from "../hooks/useFetchQuery.js"
 import { ResponseDTO } from "@backend/services/responseDTO.js"
 import { Params } from "@backend/services/ticketmaster/validationSchema.js"
 import { PROD, getConnectionConfig } from "./utils/connectionConfig.js"
@@ -10,7 +10,7 @@ const apiConfig = {
 
 export function useTicketmaster(params?: Params) {
   const url = constructURL(params)
-  return useFetch<ResponseDTO[]>(url)
+  return useFetchQuery<ResponseDTO[]>(url)
 }
 
 function constructURL(params?: Params) {

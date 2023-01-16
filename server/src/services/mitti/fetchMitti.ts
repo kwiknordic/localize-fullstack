@@ -2,6 +2,7 @@ import Parser from "rss-parser"
 import { ResponseDTO } from "../responseDTO.js"
 import { Params } from "./validationSchema.js"
 import { formatDates } from "../../utils/formatters.js"
+import * as nodeCrypto from "node:crypto"
 
 type Function = (params: Params) => Promise<ResponseDTO[]>
 const parser = new Parser()
@@ -13,6 +14,7 @@ export const fetchMitti: Function = async({from = 0, to = 25}) => {
 
     return feed.items.map(obj => {
       return {
+        id: nodeCrypto.randomUUID(),
         title: obj.title,
         description: obj.content,
         date: formatDates(obj.pubDate),

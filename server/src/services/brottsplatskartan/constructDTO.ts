@@ -1,6 +1,7 @@
 import { Brottsplatskartan } from "./types.js"
 import { ResponseDTO } from "../responseDTO.js"
 import { formatLocations, formatDates } from "../../utils/formatters.js"
+import * as nodeCrypto from "node:crypto"
 
 export function constructDTO(unmappedData: Brottsplatskartan) {
   return unmappedData.data.map((obj) => {
@@ -13,6 +14,7 @@ export function constructDTO(unmappedData: Brottsplatskartan) {
       .at(0)
   
     return {
+      id: nodeCrypto.randomUUID(),
       title: obj.title_type,
       description: obj.description,
       locations: location,

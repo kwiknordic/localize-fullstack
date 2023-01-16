@@ -30,12 +30,13 @@ export function FeedContainer({ id, title, icon, children }: FeedContainerProps)
 export function Feed({ data }: { data: FetchState<ResponseDTO[]> }) {
   const { data: posts, loading, error } = data
 
+
   if (loading) return <LoadingPost />
   if (error instanceof Error) return <ErrorPost name={error.name} message={error.message} />
 
   return (
     <>
-      {posts ? posts.map(article => <Post article={article} key={`${article.title}-${article.date}`} />)
+      {posts ? posts.map(article => <Post article={article} key={article.id} />)
         : <EmptyPost />}
       {posts && <EndOfPosts />}
     </>
